@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # nagios wrapper for postman/newman collections
-# b2c@dest-unrachable.net
+# b2c@dest-unreachable.net
 # 2017-01-04
 
 # license: GNU GENERAL PUBLIC LICENSE v2 (GPLv2)
