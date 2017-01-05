@@ -88,12 +88,7 @@ if [[ -z ${APIKEY} ]] || [[ -z ${COLLECTION} ]] || [[ -z ${ENVIRONMENT} ]] || [[
 fi
 
 STARTTIME=$(date +%s.%N)
-RESULT=$(
-export HTTP_PROXY=""
-export http_proxy=""
-export HTTPS_PROXY=""
-export https_proxy=""
-${NEWMAN} run \
+RESULT=$(${NEWMAN} run \
   --bail \
   --no-color \
   --disable-unicode \
