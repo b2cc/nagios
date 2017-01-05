@@ -8,6 +8,7 @@
 # get a full copy here:
 # https://opensource.org/licenses/GPL-2.0
 
+
 # uncomment to debug:
 #set -x
 
@@ -87,7 +88,12 @@ if [[ -z ${APIKEY} ]] || [[ -z ${COLLECTION} ]] || [[ -z ${ENVIRONMENT} ]] || [[
 fi
 
 STARTTIME=$(date +%s.%N)
-RESULT=$(${NEWMAN} run \
+RESULT=$(
+export HTTP_PROXY=""
+export http_proxy=""
+export HTTPS_PROXY=""
+export https_proxy=""
+${NEWMAN} run \
   --bail \
   --no-color \
   --disable-unicode \
@@ -101,14 +107,17 @@ TIME=$(echo "$ENDTIME - $STARTTIME" | bc | awk -F"." '{print $1"."substr($2,1,3)
 
 if [[ ${EXIT} -eq 0 ]]; then
   CHECKSTATUS="OK - Test of collection ${FOLDER} succeeded"
+  RC="0"
 else
   CHECKSTATUS="CRITICAL - Test of collection ${FOLDER} failed"
+  RC="2"
+  TIME="0.001"  # set time to zero so outages are easily spottable on a graph
 fi
 
 if [[ ${PRINT} -eq 0 ]]; then
   echo "${CHECKSTATUS} | time=${TIME}"
+  exit ${RC}
 else
   echo "${RESULT}"
   echo "Exit Status: ${EXIT}"
 fi
-
