@@ -15,7 +15,7 @@ if ! [ "${BASH_VERSION:-}" ]; then
   echo "Script need bash, exiting."
 fi
 
-if ! [[ -x $(which newman 2>&1 >/dev/null) ]]; then
+if ! [[ -x $(which newman 2>/dev/null) ]]; then
   echo "no newman binary found in path, exiting."
   exit 1
 else
