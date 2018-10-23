@@ -31,3 +31,11 @@
     -v | --verbose          display check states and calculated values. output can NOT be parsed by nagios,
                             for debugging only. default: false
 ```
+
+## Sample Output
+```
+~# ./check_memory -w 80 -c 90
+
+Memory usage OK: 111411MiB (98.76%) of 112805MiB, Effective memory usage: 48429MiB (42.93%) Swap usage: 0MiB (0.00%) | TotalMem=118284972032 TotalMemUsed=116823584768B;118284972032;118284972032;0;118284972032 EffectiveMemUsed=50782126080B;94627977625;106456474828;0;118284972032 SwapUsed=0B;15999958016;31999916032;0;63999832064
+```
+
