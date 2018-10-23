@@ -22,8 +22,8 @@
 
     -h | --help             display help
     -u | --unit             either B, K, M or G. default: M
-    -c | --critical         memory critical threshold in percent. default: 90
-    -w | --warning          memory warning threshold in percent. default: 80
+    -c | --mem-critical     memory critical threshold in percent. default: 90
+    -w | --mem-warning      memory warning threshold in percent. default: 80
     -C | --swap-critical    swap critical threshold in percent. default: 50
     -W | --swap-warning     swap warning threshold in percent. default: 25
     -M | --no-mem-alert     mem usage above threshold does not trigger alert. default: false
